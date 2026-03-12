@@ -67,27 +67,10 @@ body {
 }
 
 .logo {
-  height: 42px;
+  height: 63px;
   width: auto;
   display: block;
   object-fit: contain;
-}
-
-.nav {
-  display: flex;
-  gap: 1.75rem;
-}
-
-.nav a {
-  color: var(--silver-muted);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color var(--transition);
-}
-
-.nav a:hover {
-  color: var(--electric-blue);
 }
 
 /* Hero */
@@ -270,11 +253,7 @@ body {
   }
 
   .logo {
-    height: 36px;
-  }
-
-  .nav {
-    gap: 1.25rem;
+    height: 54px;
   }
 
   .hero {
