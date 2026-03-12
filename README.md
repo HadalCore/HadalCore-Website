@@ -48,32 +48,37 @@ Use **GitHub Pages** to host the site for free, then point your domain HadalCore
 
 ### 3. Use your domain HadalCore.com
 
-1. In the same **Pages** settings, under **Custom domain**, type: `hadalcore.com`
-2. Click **Save**. GitHub will show you the DNS records to use.
-3. At the place where you manage DNS for HadalCore.com (e.g. GoDaddy, Namecheap, Cloudflare, your registrar):
+GitHub checks **both** the main domain and the **www** subdomain (“alternate name”). You must configure **both** at your DNS provider.
 
-   **Option A — Apex domain (hadalcore.com):**  
-   Add these **A** records (keep any existing ones or replace as needed):
+1. In the same **Pages** settings, under **Custom domain**, type: `hadalcore.com` and click **Save**.
+2. At your DNS provider (e.g. **Namecheap**), do the following.
 
-   | Type | Name/Host | Value        |
-   |------|-----------|--------------|
+   **A. Apex domain (hadalcore.com)**  
+   - Remove any existing **A** record for `@` (or `hadalcore.com`) that points to a parking or other IP.  
+   - Add these **four A records** (same Name/Host for all four; only the Value changes):
+
+   | Type | Name/Host | Value           |
+   |------|-----------|-----------------|
    | A    | `@`       | `185.199.108.153` |
    | A    | `@`       | `185.199.109.153` |
    | A    | `@`       | `185.199.110.153` |
    | A    | `@`       | `185.199.111.153` |
 
-   **Option B — www only (www.hadalcore.com):**  
-   Add a **CNAME** record:
+   **B. www (www.hadalcore.com)**  
+   - Remove any existing **CNAME** for `www`.  
+   - Add **one CNAME** record. The value must be exactly (all lowercase, no `https://`, no path):
 
-   | Type  | Name/Host | Value                    |
-   |-------|-----------|--------------------------|
-   | CNAME | `www`     | `YOUR_USERNAME.github.io` |
+   | Type  | Name/Host | Value                  |
+   |-------|-----------|------------------------|
+   | CNAME | `www`     | `hadalcore.github.io`  |
 
-   (Use **Option A** if you want people to open **hadalcore.com** and see the site.)
+   In Namecheap, enter **hadalcore.github.io** in the Value/Target field (some DNS require a trailing dot: `hadalcore.github.io.`). Do **not** use `HadalCore.github.io` or the repo URL.
 
-4. Back in GitHub **Pages** settings, check **Enforce HTTPS** once the domain shows as verified (can take a few minutes to 48 hours).
+   **Namecheap:** Domain List → **Manage** next to hadalcore.com → **Advanced DNS**. Delete the old A and CNAME records above, then add the 4 A records and the CNAME as in the tables. Use `@` for the A records and `www` for the CNAME name.
 
-After DNS propagates, **https://hadalcore.com** will show your HadalCore site. Updates: edit files, commit, and push to `main`; GitHub Pages will redeploy automatically.
+3. Wait 5–30 minutes (sometimes up to 24 hours). In GitHub **Pages** settings, check **Enforce HTTPS** once the domain shows as verified.
+
+After DNS propagates, **https://hadalcore.com** and **https://www.hadalcore.com** will work. Updates: edit files, commit, and push to `main`; GitHub Pages will redeploy automatically.
 
 ## Customization
 
