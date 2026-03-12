@@ -28,15 +28,11 @@ Use **GitHub Pages** to host the site for free, then point your domain HadalCore
 
 ### 1. Put the site on GitHub
 
-1. Create a new repository on [GitHub](https://github.com/new) (e.g. `hadalcore-website` or `hadalcore.com`). Don’t add a README, .gitignore, or license if you’re uploading this folder.
-2. In this project folder, open PowerShell or Command Prompt and run:
+1. Create a new repository on [GitHub](https://github.com/new) (e.g. `hadalcore-website` or `hadalcore.com`). Don’t add a README, .gitignore, or license.
+2. In this project folder, point the remote at your new repo and push (the initial commit is already done):
 
-   ```bash
-   git init
-   git add index.html styles.css README.md assets/
-   git commit -m "Initial HadalCore website"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+   ```powershell
+   git remote set-url origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
    git push -u origin main
    ```
 
